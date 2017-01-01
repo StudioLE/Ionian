@@ -1,0 +1,106 @@
+<div class="body">
+
+<template [ngIf]="video">
+<div  *ngFor="let vid of videos" class="gallery">
+  <div class="container">
+    <iframe src="{{ vid.path }}" frameborder="0" allowfullscreen class="full"></iframe>
+  </div> <!-- .container -->
+</div> <!-- .gallery -->
+</template>
+
+<div *ngIf="images" class="gallery">
+  <a *ngFor="let img of images" href="#" rel="lightbox tooltip" title="{{ img.title }}" attr.data-full="{{ img.path|img:{w: 1200} }}">
+    <img src="{{ img.path|img:{h: 250} }}" />
+  </a>
+</div> <!-- .gallery -->
+
+<div *ngIf="photoset" class="gallery" rel="photoset" attr.data-photoset="{{ photoset.id }}">
+  <a *ngFor="let photo of get_photoset(photoset.id)" href="http://www.flickr.com/photos/ispy_creativity/{{ photo.id }}/lightbox/" rel="lightbox tooltip" title="{{ photo.title }}" attr.data-full="{{ photo.url_o|img:{w:1200} }}">
+    <img src="{{ photo.url_o|img:{h:250} }}">
+  </a>
+</div> <!-- .gallery -->
+
+<div *ngIf="screenshots" class="screenshot">
+  <div class="container">
+    <div id="ispy-scroller">
+      <div *ngFor="let img of screenshots">
+        <img src="{{ img.path|img:{w:1200} }}" />
+      </div>
+    </div> <!-- #ispy-scroller -->
+  </div> <!-- .container -->
+</div> <!-- .screenshot -->
+
+<div *ngIf="projects && layout == 'index'" class="next-project">
+  <div class="projects">
+    <div *ngFor="let project of projects"
+      ng-controller="CMSCtrl"
+      ng-include="'views/projects.html'">
+    </div>
+  </div>
+</div> <!-- .next-project -->
+
+<div class="container">
+  <div class="row">
+
+    <div *ngIf="downloads || links" class="col-sm-3">
+
+      <div *ngIf="downloads" class="downloads">
+
+        <h3>Downloads</h3>
+
+        <div *ngFor="let dl of downloads" class="btn-group">
+          <a href="{{ dl.path|doc }}" class="btn btn-default"><i class="fa fa-{{ dl.icon || 'file-pdf-o' }}"></i> {{ dl.title }}</a>
+          <a href="{{ dl.path|dl }}" class="btn btn-default" download><i class="fa fa-download"></i></a>
+        </div>
+      </div> <!-- .downloads -->
+
+      <div *ngIf="links" class="links">
+
+        <h3>Links</h3>
+
+        <a *ngFor="let a of links" href="{{ a.path }}" class="btn btn-default"><i class="fa fa-{{ a.icon||'arrow-right' }}"></i> {{ a.title }}</a>
+      </div> <!-- .links -->
+
+    </div>
+
+    <div class="col-sm-9">
+
+      <div class="block" ng-bind-html="body|md">
+      </div>
+
+      <div *ngIf="github" class="github" rel="github" attr.data-repo="{{ github.repo }}"></div>
+
+    </div>
+  </div> <!-- .row -->
+
+  <div *ngIf="skills" class="skills row">
+    <div ng-repeat="(key, section) in skills" class="col-sm-3">
+      <h3>{{ key }}</h3>
+      <p>
+        <a *ngFor="let sk of section"
+          tooltip-template="'views/tooltip.html'"
+          href="#">{{ sk.skill }}</a>
+      </p>
+    </div>
+  </div> <!-- .skills -->
+
+</div> <!-- .container -->
+
+<div *ngIf="comments" class="comments">
+  <div class="container">
+    <!-- @todo partial 'disqus' -->
+  </div> <!-- .container -->
+</div> <!-- .comments -->
+
+<div *ngIf="projects && layout == 'standard'" class="next-project">
+  <div class="container">
+    <h2>Next project</h2>
+  </div> <!-- .container -->
+  <div class="projects">
+    <div *ngFor="let project of projects">
+      <project></project>
+    </div>
+  </div>
+</div> <!-- .next-project -->
+
+</div>

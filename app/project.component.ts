@@ -8,14 +8,12 @@ import './rxjs-operators';
 import { ContentService } from './content.service';
 
 @Component({
-  selector: 'app',
-  templateUrl: 'assets/views/body.html',
+  selector: 'project',
+  templateUrl: 'assets/views/project.html',
   providers: [ ContentService ]
 })
-export class AppComponent implements OnInit {
+export class ProjectComponent implements OnInit {
   errorMessage: string;
-  name = 'Angular';
-
   meta: any = {}
   
   constructor (private contentService: ContentService) {}

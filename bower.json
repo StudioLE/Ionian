@@ -1,0 +1,16 @@
+{
+  "name": "visayan",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "https://github.com/StudioLE/Visayan",
+  "license": false,
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "font-awesome": "~4.7.0",
+    "magnific-popup": "~1.1.0",
+    "less": "~2.7.1",
+    "async": "~2.1.4",
+    "marked": "~0.3.6"
+  }
+}

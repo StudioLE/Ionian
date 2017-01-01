@@ -1,5 +1,6 @@
 .idea
 node_modules
+bower_components
 jspm_packages
 npm-debug.*
 link-checker-results.txt
@@ -9,3 +10,4 @@ e2e/**/*.js
 e2e/**/*.js.map
 _test-output
 _temp
+assets

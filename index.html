@@ -4,7 +4,19 @@
     <title>Angular QuickStart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <!-- build:vendor-css -->
+    <link rel="stylesheet" href="assets/fonts/swiss-font.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/magnific-popup/dist/magnific-popup.css">
+    <!-- endbuild -->
+    <!-- build:css -->
+    <link rel="stylesheet/less" href="assets/css/style.less">
+    <script src="bower_components/less/dist/less.min.js" data-async="true" data-log-level="0"></script>
+    <!-- endbuild -->
+    <link rel="shortcut icon" href="icons/photographer-favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="icons/photographer-touch-icon.png">
+    <link rel="author" href="humans.txt" type="text/plain">
 
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -20,6 +32,59 @@
   </head>
 
   <body>
-    <my-app>Loading AppComponent content here ...</my-app>
+
+<div id="head" class="grad" rel="bg" ng-style="{ 'background-image': 'url(' + scale_bg(thumb.path) + ')' }">
+  <div class="container rows">
+    <div class="row">
+      <div class="col-sm-6 relative">
+        <div class="title bottom">
+          <a href="/" class="logo">LE</a> / <h1><a href="#{{ url }}">{{ title }}</a></h1>
+        </div>
+      </div>
+      <div class="col-sm-6 relative"
+          ng-controller="NavCtrl"
+          ng-include="navView()">
+      </div>
+    </div> <!-- .row -->
+  </div> <!-- .container -->
+</div> <!-- #head -->
+
+<div ng-if="intro" class="block intro">
+  <div class="container" ng-bind-html="intro|md">
+  </div> <!-- .container -->
+</div>
+
+<div ng-if="alert" ng-repeat="al in alerts" class="alert alert-{{ al.status }}">
+  <div class="container">
+    <p><i class="fa fa-{{ al.status }}-sign"></i> {{ al.message }}</p>
+  </div>
+</div> <!-- .alert -->
+
+<!-- <div ng-view></div> -->
+
+<app>Loading AppComponent content here ...</app>
+
+<div id="foot">
+  <div class="container rows">
+    <div class="row">
+      <div class="col-sm-6 relative">
+        <div class="title bottom">
+          <a href="/" class="logo">LE</a> / 
+          <a href="/contact" rel="tooltip" title="<em>Email</em> studio@studiole.uk"><i class="fa fa-envelope"></i></a>
+          <a href="/docs/cv" rel="tooltip" title="<em>LE /</em> CV"><i class="fa fa-file-pdf-o"></i></a>
+          <a href="http://blog.elsdon.me" rel="tooltip" title="<em>LE /</em> Tumblr Blog"><i class="fa fa-tumblr"></i></a>
+          <a href="http://www.twitter.com/#!/iSpyCreativity" rel="tooltip" title="<em>Twitter</em> @iSpyCreativity"><i class="fa fa-twitter"></i></a>
+          <a href="http://www.linkedin.com/in/elsdon" rel="tooltip" title="<em>LE /</em> LinkedIn"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 relative">
+        <div class="menu bottom">
+          {{ menu([{'title': 'Home', url: '/', slug: 'index'}, 'architecture', 'photography', 'code', 'web'], this.page) }}
+        </div>
+      </div>
+    </div> <!-- .row -->
+  </div> <!-- .container -->
+</div> <!-- #foot -->
+
   </body>
 </html>

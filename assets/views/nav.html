@@ -1,0 +1,8 @@
+<div class="menu top">
+  <a ng-repeat-start="link in navTop" ng-href="{{link.url}}" ng-class="navClass(link.url)">{{link.title}}</a>
+  <span ng-repeat-end ng-if="$index != navTop.length - 1" class="spacer" >/ </span>
+</div>
+<div class="menu bottom">
+  <a ng-repeat-start="link in navMain" ng-href="{{link.url}}" ng-class="navClass(link.url)">{{link.title}}</a>
+  <span ng-repeat-end ng-if="$index != navMain.length - 1" class="spacer" >/ </span>
+</div>
