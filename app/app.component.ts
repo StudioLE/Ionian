@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import * as _ from 'lodash';
 
@@ -18,15 +19,22 @@ export class AppComponent implements OnInit {
 
   meta: any = {}
   
-  constructor (private contentService: ContentService) {}
+  constructor (private titleService: Title, private contentService: ContentService) {}
 
-  ngOnInit() { this.getContent(); }
+  public setTitle(newTitle: string) {
+    this.titleService.setTitle( newTitle );
+  }
+
+  ngOnInit() {
+    this.getContent();
+  }
 
   getContent() {
     this.contentService.getContent()
     .then(
       meta => {
         _.extend(this, meta.reset, meta)
+        this.setTitle(meta.title + ' / Laurence Elsdon')
         console.log(this)
       }
     );
