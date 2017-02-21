@@ -32,59 +32,6 @@
   </head>
 
   <body>
-
-<div id="head" class="grad" rel="bg" ng-style="{ 'background-image': 'url(' + scale_bg(thumb.path) + ')' }">
-  <div class="container rows">
-    <div class="row">
-      <div class="col-sm-6 relative">
-        <div class="title bottom">
-          <a href="/" class="logo">LE</a> / <h1><a href="#{{ url }}">{{ title }}</a></h1>
-        </div>
-      </div>
-      <div class="col-sm-6 relative"
-          ng-controller="NavCtrl"
-          ng-include="navView()">
-      </div>
-    </div> <!-- .row -->
-  </div> <!-- .container -->
-</div> <!-- #head -->
-
-<div ng-if="intro" class="block intro">
-  <div class="container" ng-bind-html="intro|md">
-  </div> <!-- .container -->
-</div>
-
-<div ng-if="alert" ng-repeat="al in alerts" class="alert alert-{{ al.status }}">
-  <div class="container">
-    <p><i class="fa fa-{{ al.status }}-sign"></i> {{ al.message }}</p>
-  </div>
-</div> <!-- .alert -->
-
-<!-- <div ng-view></div> -->
-
-<app>Loading AppComponent content here ...</app>
-
-<div id="foot">
-  <div class="container rows">
-    <div class="row">
-      <div class="col-sm-6 relative">
-        <div class="title bottom">
-          <a href="/" class="logo">LE</a> / 
-          <a href="/contact" rel="tooltip" title="<em>Email</em> studio@studiole.uk"><i class="fa fa-envelope"></i></a>
-          <a href="/docs/cv" rel="tooltip" title="<em>LE /</em> CV"><i class="fa fa-file-pdf-o"></i></a>
-          <a href="http://blog.elsdon.me" rel="tooltip" title="<em>LE /</em> Tumblr Blog"><i class="fa fa-tumblr"></i></a>
-          <a href="http://www.twitter.com/#!/iSpyCreativity" rel="tooltip" title="<em>Twitter</em> @iSpyCreativity"><i class="fa fa-twitter"></i></a>
-          <a href="http://www.linkedin.com/in/elsdon" rel="tooltip" title="<em>LE /</em> LinkedIn"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-      <div class="col-sm-6 relative">
-        <div class="menu bottom">
-          {{ menu([{'title': 'Home', url: '/', slug: 'index'}, 'architecture', 'photography', 'code', 'web'], this.page) }}
-        </div>
-      </div>
-    </div> <!-- .row -->
-  </div> <!-- .container -->
-</div> <!-- #foot -->
-
+    <app>Loading AppComponent content here ...</app>
   </body>
 </html>

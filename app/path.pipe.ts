@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// import * as _ from 'lodash';
+
+import * as marked from 'marked';
 
 @Pipe({ name: 'img' })
 export class ImgPipe implements PipeTransform {
@@ -34,5 +35,16 @@ export class DocPipe implements PipeTransform {
 export class DlPipe implements PipeTransform {
   transform(path: string): string {
     return '/dl/' + path
+  }
+}
+
+@Pipe({ name: 'md' })
+export class MarkDownPipe implements PipeTransform {
+  transform(str: string): string {
+    if( ! str) {
+      str = ''
+      console.error('No content passed to md')
+    }
+    return marked(str)
   }
 }

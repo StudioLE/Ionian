@@ -8,7 +8,8 @@ import { ProjectComponent } from './project.component';
 import {
   ImgPipe,
   DocPipe,
-  DlPipe
+  DlPipe,
+  MarkDownPipe
 } from './path.pipe';
 
 @NgModule({
@@ -22,7 +23,8 @@ import {
     ProjectComponent,
     ImgPipe,
     DocPipe,
-    DlPipe
+    DlPipe,
+    MarkDownPipe
   ],
   providers: [
     Title
