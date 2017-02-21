@@ -14,7 +14,6 @@ import { ContentService } from './content.service';
 })
 export class ProjectComponent implements OnInit {
   errorMessage: string;
-  meta: any = {}
   
   constructor (private contentService: ContentService) {}
 

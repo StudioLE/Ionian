@@ -5,6 +5,8 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
+import { Meta } from './meta';
+
 import * as _ from 'lodash';
 import * as toml from 'toml';
 
@@ -15,7 +17,7 @@ export class ContentService {
   
   constructor (private http: Http) {}
   
-  getContent (): Promise<any> {
+  getContent (): Promise<Meta> {
       // var path = 'pages'
 
       // if( ! route || route == '/' || route == ' ') {
@@ -108,11 +110,9 @@ export class ContentService {
       downloads: null,
       intro: null,
       images: null,
-      // layout: null,
       links: null,
       photoset: null,
       projects: null,
-      // template: null,
       screenshots: null,
       skills: null,
       title: null,

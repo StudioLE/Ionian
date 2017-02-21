@@ -16,8 +16,6 @@ import { ContentService } from './content.service';
 export class AppComponent implements OnInit {
   errorMessage: string;
   name = 'Angular';
-
-  meta: any = {}
   
   constructor (private titleService: Title, private contentService: ContentService) {}
 
