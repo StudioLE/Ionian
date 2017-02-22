@@ -27,7 +27,11 @@ import {
     MarkDownPipe
   ],
   providers: [
-    Title
+    Title,
+    {
+      provide: 'Window',
+      useValue: window
+    }
   ],
   bootstrap: [
    AppComponent

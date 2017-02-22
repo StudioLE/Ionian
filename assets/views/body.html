@@ -1,5 +1,5 @@
 
-<div id="head" class="grad" rel="bg" ng-style="{ 'background-image': 'url(' + scale_bg(thumb.path) + ')' }">
+<div id="head" class="grad" rel="bg" [ngStyle]="bgImgStyle(thumb)">
   <div class="container rows">
     <div class="row">
       <div class="col-sm-6 relative">
