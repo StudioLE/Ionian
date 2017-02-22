@@ -1,8 +1,8 @@
 {
-  "name": "visayan",
-  "description": "",
+  "name": "studiole-ionian",
+  "description": "Angular 2 version of StudioLE",
   "version": "0.0.1",
-  "homepage": "https://github.com/StudioLE/Visayan",
+  "homepage": "https://github.com/StudioLE/Ionian",
   "license": false,
   "private": true,
   "dependencies": {
